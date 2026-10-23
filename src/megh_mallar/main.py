@@ -1,4 +1,5 @@
 import requests
+import subprocess
 
 
 print("Welcome to Megh-Mallar")
@@ -19,6 +20,10 @@ response = requests.get(url=URL)
 if response.status_code == 200:
     data = response.json()
 
+subprocess.run("clear", shell=True)
+
+print("Weather for", city)
 print("Weather: ", data["weather"][0]["main"])
-print("Temperature: ", data["main"]["temp"])
+print("Temperature: ", data["main"]["temp"], "°C")
+print("Pressure: ", data["main"]["pressure"], "hPa")
 
